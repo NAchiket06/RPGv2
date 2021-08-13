@@ -4,45 +4,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Mover : MonoBehaviour
+namespace RPG.Movement
 {
-
-    Ray lastRay;
-    
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
+    public class Mover : MonoBehaviour
     {
 
-        if(Input.GetMouseButton(0)){
-            MoveToCursor();
+        Ray lastRay;
+
+        void Update()
+        {
+            updateAnimator();
         }
-        updateAnimator();
-    }
 
 
 
-    void MoveToCursor(){
+        public void MoveTo(Vector3 Destination){
+            GetComponent<NavMeshAgent>().SetDestination(Destination);
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); ;
-        RaycastHit hit;
-        if(Physics.Raycast(ray,out hit)){
-            GetComponent<NavMeshAgent>().SetDestination(hit.point);
         }
-        
-    }
 
-    private void updateAnimator()
-    {
-        Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
-        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-        float speed = localVelocity.z;
+        private void updateAnimator()
+        {
+            Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            float speed = localVelocity.z;
 
-        GetComponent<Animator>().SetFloat("forwardSpeed",speed);
+            GetComponent<Animator>().SetFloat("forwardSpeed",speed);
 
+        }
     }
 }
