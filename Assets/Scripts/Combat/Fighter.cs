@@ -10,7 +10,8 @@ namespace RPG.Combat
         
         [SerializeField] float WeaponRange = 2f;
         [SerializeField] float TimeBetweenAttacks = 1.5f;
-        float timeSinceLastAttack;
+        [SerializeField] float damage = 30f;
+        float timeSinceLastAttack = Mathf.Infinity;
         Health target;
 
 
@@ -55,7 +56,7 @@ namespace RPG.Combat
             return Vector3.Distance(transform.position, target.transform.position) < WeaponRange;
         }
 
-        public void Attack(CombatTarget combatTarget)
+        public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             target = combatTarget.GetComponent<Health>();
@@ -74,7 +75,7 @@ namespace RPG.Combat
             GetComponent<Animator>().ResetTrigger("attack");
         }
 
-        public bool CanAttack(CombatTarget combatTarget){
+        public bool CanAttack(GameObject combatTarget){
 
             if(combatTarget == null)
             {
@@ -90,7 +91,7 @@ namespace RPG.Combat
             {
                 return;
             }
-            target.TakeDamage(10f);
+            target.TakeDamage(damage);
         }
     }
 }
