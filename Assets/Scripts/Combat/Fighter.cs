@@ -65,6 +65,7 @@ namespace RPG.Combat
         public void Cancel()
         {
             target = null;
+            GetComponent<Mover>().Cancel();
             StopAttack();
 
         }
