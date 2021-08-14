@@ -22,6 +22,9 @@ namespace RPG.Control
         float timeSinceArrivedAtWaypoint;
         [SerializeField] float WaypointDwellTime = 5f;
 
+        [Range(0,1)]
+        [SerializeField] float patrolSpeedFraction = 0.3f;
+
         Vector3 guardPosition;
 
         private void Start() 
@@ -80,7 +83,7 @@ namespace RPG.Control
             //fighter.Cancel();
 
             if(timeSinceArrivedAtWaypoint > WaypointDwellTime){
-                GetComponent<Mover>().StartMoveAction(nextPosition);
+                GetComponent<Mover>().StartMoveAction(nextPosition,patrolSpeedFraction);
             }
         }
 

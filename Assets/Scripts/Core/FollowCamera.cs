@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace RPG.Core
 {
+    [ExecuteInEditMode]
+
     public class FollowCamera : MonoBehaviour
     {
         [SerializeField] Vector3 offset;
