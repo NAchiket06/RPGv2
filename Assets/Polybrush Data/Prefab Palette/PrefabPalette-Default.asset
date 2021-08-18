@@ -15,7 +15,7 @@ MonoBehaviour:
   prefabs:
   - gameObject: {fileID: 190414, guid: 653c97bd88b4b084d87714542c43ee5a, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 73.37815
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 360, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -31,7 +31,7 @@ MonoBehaviour:
     name: SM_Env_Tree_03
   - gameObject: {fileID: 135026, guid: d556d30cab334dd449000218c87322ef, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 46.340343
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 360, y: 360, z: 360}
       m_ScaleRangeMin: {x: 1.4893616, y: 1, z: 1}
