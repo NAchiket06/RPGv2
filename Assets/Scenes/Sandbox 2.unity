@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: f68aa6e22d12e934eb16937568b7869a, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: cb356d016b9af7b4bb66226e13e5d3c7, type: 2}
 --- !u!1001 &1567901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5230,7 +5230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2538181530776819092, guid: ff76e27c5b303b9428e64614e098ba3a, type: 3}
       propertyPath: m_Name
-      value: Portal
+      value: Portal A
       objectReference: {fileID: 0}
     - target: {fileID: 5217627666163609522, guid: ff76e27c5b303b9428e64614e098ba3a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8329,7 +8329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2538181530776819092, guid: ff76e27c5b303b9428e64614e098ba3a, type: 3}
       propertyPath: m_Name
-      value: Portal (1)
+      value: Portal B
       objectReference: {fileID: 0}
     - target: {fileID: 5217627666163609522, guid: ff76e27c5b303b9428e64614e098ba3a, type: 3}
       propertyPath: m_LocalPosition.x
