@@ -7,14 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3155128887932646014, guid: a0880e0d2ad0a71458c02471e9974f03, type: 3}
+      propertyPath: characterClass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3499695852456063977, guid: a0880e0d2ad0a71458c02471e9974f03, type: 3}
       propertyPath: currentWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 43855396ba67a8c44b330a8eca527239, type: 2}
+      objectReference: {fileID: 11400000, guid: c01e367f4c0f0974e8b5366b4ba43045, type: 2}
     - target: {fileID: 3499695852456063977, guid: a0880e0d2ad0a71458c02471e9974f03, type: 3}
       propertyPath: defaultWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 43855396ba67a8c44b330a8eca527239, type: 2}
+      objectReference: {fileID: 11400000, guid: c01e367f4c0f0974e8b5366b4ba43045, type: 2}
+    - target: {fileID: 3499695852456063977, guid: a0880e0d2ad0a71458c02471e9974f03, type: 3}
+      propertyPath: DefaultWeaponName
+      value: EnemyBow
+      objectReference: {fileID: 0}
     - target: {fileID: 4210704308322862627, guid: a0880e0d2ad0a71458c02471e9974f03, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -62,6 +70,14 @@ PrefabInstance:
     - target: {fileID: 5632956284340674529, guid: a0880e0d2ad0a71458c02471e9974f03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955933800407270921, guid: a0880e0d2ad0a71458c02471e9974f03, type: 3}
+      propertyPath: chaseDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5955933800407270921, guid: a0880e0d2ad0a71458c02471e9974f03, type: 3}
+      propertyPath: suspicionTime
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9051570740339981892, guid: a0880e0d2ad0a71458c02471e9974f03, type: 3}
       propertyPath: m_Name

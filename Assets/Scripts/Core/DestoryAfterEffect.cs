@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class DestoryAfterEffect : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject ParentTarget;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(!GetComponent<ParticleSystem>().IsAlive())
+        {
+            if (ParentTarget != null)
+            {
+                Destroy(ParentTarget);
+            }
+            else Destroy(gameObject);
+        }
     }
 }

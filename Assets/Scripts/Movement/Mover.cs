@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Attributes;
 using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,15 +13,19 @@ namespace RPG.Movement
         [SerializeField] Transform target;
 
         [SerializeField] float MaxSpeed = 5f;
-        NavMeshAgent agent;
 
-        private void Start() {
+        NavMeshAgent agent;
+        Health health;
+
+        private void Awake()
+        {
             agent = GetComponent<NavMeshAgent>();
+            health = GetComponent<Health>();
         }
 
         void Update()
         {
-            agent.enabled = !GetComponent<Health>().IsDead();
+            agent.enabled = !health.IsDead();
             updateAnimator();
         }
 

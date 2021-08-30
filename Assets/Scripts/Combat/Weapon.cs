@@ -1,4 +1,4 @@
-using RPG.Core;
+using RPG.Attributes;
 using System;
 using UnityEngine;
 
@@ -7,13 +7,22 @@ namespace RPG.Combat
     [CreateAssetMenu(fileName ="Wepons",menuName ="Weapons/Create New Weapon")]
     public class Weapon : ScriptableObject
     {
+
+        [Header("Refrences")]
         [SerializeField] GameObject weaponPrefab = null;
         [SerializeField] AnimatorOverrideController weaponOverride = null;
+
+        [Header("Weapon Attributes")]
         [SerializeField] float damage = 30f;
+        
+        [Tooltip("The percent buff this weapon has which will be added to the base damage of the weapon.")]
+        [SerializeField] float percentBonus = 0f;
+
         [SerializeField] float WeaponRange = 2f;
         [SerializeField] bool isRightHanded = true;
         [SerializeField] Projectile projectile = null;
 
+        [Header("Weapon Name")]
         const string weaponName = "Weapon";
 
         public void Spawn(Transform LeftHand, Transform RightHand, Animator animator)
@@ -75,10 +84,10 @@ namespace RPG.Combat
             return projectile != null;
         }
 
-        public void LaunchProjectile(Transform LHand, Transform RHand,Health target)
+        public void LaunchProjectile(Transform LHand, Transform RHand,Health target,GameObject instigator,float StatDamage)
         {
             Projectile proj = Instantiate(projectile, GetTransform(LHand, RHand).position, GetTransform(LHand, RHand).rotation);
-            proj.SetTarget(target,damage);
+            proj.SetTarget(target, instigator,StatDamage);
         }
         
         public float getDamage()
@@ -89,6 +98,11 @@ namespace RPG.Combat
         public float getRange()
         {
             return WeaponRange;
+        }
+
+        public float GetPercentageBonus()
+        {
+            return percentBonus;
         }
 
         public GameObject retunPrefab()

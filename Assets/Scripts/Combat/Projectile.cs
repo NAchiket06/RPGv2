@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using RPG.Core;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -14,6 +14,7 @@ namespace RPG.Combat
         Health target = null;
         float damage = 0;
 
+        GameObject instigator = null;
         [Header("Hit Effects")]
         [SerializeField] bool DidHit = false;
         [SerializeField] GameObject hitEffect = null;
@@ -37,10 +38,11 @@ namespace RPG.Combat
                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(Health target,GameObject instigator, float damage)
         {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
         }
 
         private Vector3 GetAimLocation()
@@ -63,7 +65,7 @@ namespace RPG.Combat
             }
             if (other.GetComponent<Health>() != target) return;
             if (target.IsDead()) return;
-            target.TakeDamage(damage);
+            target.TakeDamage(instigator, damage);
 
             foreach (GameObject toDestroy in destroyOnHit)
             {

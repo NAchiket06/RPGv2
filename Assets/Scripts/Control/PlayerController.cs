@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Combat;
-using RPG.Core;
+using RPG.Attributes;
+using System;
 
 namespace RPG.Control
 {
@@ -11,10 +12,30 @@ namespace RPG.Control
     {
         Health health;
 
+        enum CursorType
+        {
+            None,
+            Movement,
+            Combat
+        }
+
+        [System.Serializable]
+        struct CursorMapping
+        {
+            public CursorType type;
+            public Texture2D texture;
+            public Vector2 hotspot;
+        }
+
+        [SerializeField] CursorMapping[] cursorMapping;
+        private void Awake()
+        {
+            health = GetComponent<Health>();
+        }
         private void Start() 
         {
-            health = GetComponent<Health>(); 
         }
+
 
         void Update()
         {
@@ -24,7 +45,9 @@ namespace RPG.Control
             }
             if(InteractWithCombat()) return;
             if(InteractWithMovement()) return;
-            
+
+            SetCursor(CursorType.None);
+
         }
 
         private bool InteractWithCombat(){
@@ -45,24 +68,31 @@ namespace RPG.Control
                 if(Input.GetMouseButtonDown(0)){
                     GetComponent<Fighter>().Attack(target.gameObject);
                 }
+
+                SetCursor(CursorType.Combat);
                 return true;
             }
 
             return false;
         }
 
+        
         private bool InteractWithMovement()
         {
 
             RaycastHit hit;
             if (Physics.Raycast(GetMouseRay(), out hit))
             {
-                if(Input.GetMouseButton(0)){
-                    GetComponent<Mover>().StartMoveAction(hit.point,1f);
-                    return true;
-                }
-            }
 
+                if (Input.GetMouseButton(0)){
+                    GetComponent<Mover>().StartMoveAction(hit.point,1f);
+                }
+                
+                SetCursor(CursorType.Movement);
+
+                return true;
+
+            }
             return false;
         }
 
@@ -70,5 +100,25 @@ namespace RPG.Control
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);
         }
+
+        private void SetCursor(CursorType type)
+        {
+            CursorMapping cursorMapping = GetCursorMapping(type);
+            Cursor.SetCursor(cursorMapping.texture, cursorMapping.hotspot, CursorMode.Auto);
+        }
+
+        private CursorMapping GetCursorMapping(CursorType type)
+        {
+            foreach(CursorMapping cmap in cursorMapping)
+            {
+                if (cmap.type == type)
+                {
+                    return cmap;
+                }
+            }
+
+            return cursorMapping[0];
+        }
+
     }
 }

@@ -42,6 +42,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b2868a8b2b5a345a94964e296e899e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorMapping:
+  - type: 0
+    texture: {fileID: 2800000, guid: 21628736160fcc9488493401da3ef621, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 1
+    texture: {fileID: 2800000, guid: 44a99ee545fd8ba46a452b12c1f9378b, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 2
+    texture: {fileID: 2800000, guid: 2d18e23e3ce249b4489b8bcdd02d3f48, type: 3}
+    hotspot: {x: 0, y: 0}
+--- !u!114 &8168730485145190522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871271981323275412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648a49612771744ca33585c2fb9992f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expPoints: 0
 --- !u!1001 &1990481591196848205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,6 +128,18 @@ PrefabInstance:
       propertyPath: uniqueIdentifier
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 4745698440518602979, guid: a080d3e74d0614c41a8cf47d3e6443e1, type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745698440518602979, guid: a080d3e74d0614c41a8cf47d3e6443e1, type: 3}
+      propertyPath: isplayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745698440518602979, guid: a080d3e74d0614c41a8cf47d3e6443e1, type: 3}
+      propertyPath: LevelUpParticleEffect
+      value: 
+      objectReference: {fileID: 8892230061935700482, guid: 449bdf41cffee584bb5339b6ef7ce391, type: 3}
     - target: {fileID: 6522395619963556212, guid: a080d3e74d0614c41a8cf47d3e6443e1, type: 3}
       propertyPath: Weapon
       value: 

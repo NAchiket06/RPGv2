@@ -15,6 +15,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 0}
   weaponOverride: {fileID: 22100000, guid: 50b4ed8cec71d7349a4bbd4a4c933cc9, type: 2}
   damage: 50
+  percentBonus: 5
   WeaponRange: 10
   isRightHanded: 0
   projectile: {fileID: 4073646596791565826, guid: f2ecdb2095893f04eb04909bcfc31611, type: 3}
