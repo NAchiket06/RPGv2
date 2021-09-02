@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b09ad5283fdc16449d4c50d0ac9dda6, type: 3}
   m_Name: PlayerBow
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 7370504076875986941, guid: 73c9fa0924b1d664dbd5effd81c1d9aa, type: 3}
+  weaponPrefab: {fileID: 9013729047414460635, guid: 73c9fa0924b1d664dbd5effd81c1d9aa, type: 3}
   weaponOverride: {fileID: 22100000, guid: 706ae220e08b2b342a7b7365510bbc7c, type: 2}
   damage: 20
   percentBonus: 2

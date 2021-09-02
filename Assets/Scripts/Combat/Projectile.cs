@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using RPG.Attributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG.Combat
 {
@@ -21,6 +22,8 @@ namespace RPG.Combat
         [SerializeField] GameObject[] destroyOnHit = null;
         [SerializeField] float LifeAfterImpact = 5f;
 
+
+        [SerializeField] UnityEvent onHit;
         private void Start()
         {
             transform.LookAt(GetAimLocation());
@@ -57,6 +60,8 @@ namespace RPG.Combat
 
         private void OnTriggerEnter(Collider other)
         {
+
+            onHit.Invoke();
             DidHit = true;
             if (hitEffect != null)
             {
